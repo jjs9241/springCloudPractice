@@ -1,0 +1,37 @@
+server:
+  port: 9005
+  servlet:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+
+spring:
+  application:
+    name: practice
+  resources:
+
+  security:
+    jwt:
+      token: d4efe82e71fb482754e87124106bb572ad8c2dss
+
+  messages:
+    basename: messages/message
+    encoding: UTF-8
+
+feign:
+  client:
+    config:
+      estmtClient:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: full
+          #errorDecoder: com.example.SimpleErrorDecoder
+          #retryer: com.example.SimpleRetryer
+        #requestInterceptors:
+        # - com.example.FooRequestInterceptor
+        # - com.example.BarRequestInterceptor
+        #decode404: false
+        #encoder: com.example.SimpleEncoder
+        #decoder: com.example.SimpleDecoder
+        #contract: com.example.SimpleContract
