@@ -1,6 +1,6 @@
 package com.springcloud.practice.api.sendrequest.service;
 
-import com.springcloud.practice.openfeign.feignclient.client.TestClient;
+import com.springcloud.practice.openfeign.feignclient.client.TestClientI;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -8,16 +8,13 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class SendRequestService {
 
-    private final TestClient testClient;
+    private final TestClientI testClient;
 
     public String sendGetValue(String value) throws Exception {
         System.out.println("start");
-        String body = testClient.getValue(value).getBody();
+        String body = testClient.getValue(value).toString();
+        System.out.println(body);
         System.out.println("end");
         return body;
-    }
-
-    public String getRst() throws Exception {
-        return "rst";
     }
 }

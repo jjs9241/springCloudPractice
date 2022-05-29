@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class SendRequestController {
 
-    //@Autowired
+    @Autowired
     SendRequestService sendRequestService;
 
     @GetMapping(value = "/get_value/{value}")

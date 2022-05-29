@@ -31,13 +31,23 @@ dependencies {
 
 	// Spring cloud
 	implementation "org.springframework.cloud:spring-cloud-starter-openfeign"
+	implementation 'org.springframework.cloud:spring-cloud-starter-parent:Hoxton.SR9'
 
-	// Gson
-	implementation 'com.google.code.gson:gson:2.8.6'
+	// https://mvnrepository.com/artifact/io.github.openfeign/feign-gson
+	implementation 'io.github.openfeign:feign-gson:9.3.1'
 
 	// lombok
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+
+	// logger
+	implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.30'
+	implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.10'
+
+}
+
+configurations {
+	all*.exclude group: 'log4j', module: 'log4j'
 }
 
 tasks.named('test') {
